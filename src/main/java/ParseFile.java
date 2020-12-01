@@ -9,11 +9,12 @@ public class ParseFile {
         try{
             reader = new BufferedReader(new FileReader(f));
         } catch(FileNotFoundException e){
+            System.out.println("could not read file");
             System.exit(1);
             return null;
         }
 
-        List<Integer> numbers = new ArrayList<Integer>();
+        List<Integer> numbers = new ArrayList<>();
         String s;
         while (true){
             try {

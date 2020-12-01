@@ -6,14 +6,14 @@ public class AdventOfCodeApplication {
 
 
  public static void main(String [] args) {
-     File file = new File("/Users/elisabeth/IdeaProjects/adeventofcode/src/main/resources/day1" );
-     List<Integer> numbers = ParseFile.parseFileToArray(file);
-     int solution = findSum(numbers);
-     System.out.println(solution);
+     File fileDayOne = new File("/Users/elisabeth/IdeaProjects/adeventofcode/src/main/resources/day1" );
+
+     int solution = dayOneFindSolution(ParseFile.parseFileToArray(fileDayOne));
+     System.out.println("Day one solution:" + solution);
 
  }
 
-    public static int findSum(List<Integer> numbers) {
+    private static int dayOneFindSolution(List<Integer> numbers) {
         numbers.sort(Integer::compareTo);
         int one;
         for (int i = 0 ; i<numbers.size(); i++){
