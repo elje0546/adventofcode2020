@@ -1,34 +1,23 @@
 import java.io.File;
 
-import java.util.List;
-
 public class AdventOfCodeApplication {
 
 
  public static void main(String [] args) {
-     File fileDayOne = new File("/Users/elisabeth/IdeaProjects/adeventofcode/src/main/resources/day1" );
+     File fileDayThree = new File("/Users/elisabeth/IdeaProjects/adeventofcode/src/main/resources/day3" );
+     DayOne dayOne = new DayOne();
+     int solution = dayOne.dayOneFindSolution();
+     DayTwo dayTwo = new DayTwo();
+     var solutionDayTwo = dayTwo.findSolution();
+     var secondSolutionDayTwo = dayTwo.findSecondSolution();
+     DayThree dayThree = new DayThree(ParseFile.parseFileToArrayString(fileDayThree));
+     var solutionDayThree = dayThree.findSolution(30);
 
-     int solution = dayOneFindSolution(ParseFile.parseFileToArray(fileDayOne));
      System.out.println("Day one solution:" + solution);
+     System.out.println("Day two solution:" + solutionDayTwo);
+     System.out.println("Day two solution #2 :" + secondSolutionDayTwo);
+     System.out.println("Day three solution:" + solutionDayThree);
+     System.out.println("Day three second solution: " + dayThree.findSolutionSecondPart());
 
  }
-
-    private static int dayOneFindSolution(List<Integer> numbers) {
-        numbers.sort(Integer::compareTo);
-        int one;
-        for (int i = 0 ; i<numbers.size(); i++){
-            one = numbers.get(i);
-            for(int j = numbers.size()-1 ; j>0 ; j--){
-                int two = numbers.get(j);
-                if(two + one < 2020){
-                    j = 0;
-                }else if(one +  numbers.get(j) == 2020){
-                    System.out.println("one: " + one + " Two: " + two);
-                    return numbers.get(j) * one;
-            }}
-        }
-     return 0;
-    }
-
-
 }
